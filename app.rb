@@ -3,7 +3,15 @@ require 'sinatra/base'
 class BookmarkManager < Sinatra::Base
 
   get '/' do 
-    'We have lift off'
+    erb :index
+  end
+
+  post '/list' do 
+    redirect '/bookmarks'
+  end
+
+  get '/bookmarks' do 
+    erb :bookmarks
   end 
 
   run! if app_file == $0
