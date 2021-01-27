@@ -17,5 +17,23 @@ class BookmarkManager < Sinatra::Base
     erb :bookmarks
   end 
 
+  get '/new' do
+    erb :new
+  end
+
+  post '/bookmarks' do
+    Bookmark.create(url: params[:url], title: params[:title])
+    redirect '/bookmarks'
+  
+  end
+
+  enable :sessions, :method_override
+
+  delete '/bookmarks/:id' do
+  # let's print out the form params
+  Bookmark.delete(id: params[:id])
+  redirect '/bookmarks'
+  end
+
   run! if app_file == $0
 end 

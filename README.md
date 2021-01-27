@@ -9,6 +9,8 @@ As a user so I can see what sites I have visited I would like to be able to see 
 
 As a user so that I can stor bookmarks to review later I want to add a bookmark to my app
 
+As a user so that i am able to remove my bookmark from the app I would like to be able to delete a bookmark
+
 
 ```
 
@@ -24,3 +26,4 @@ As a user so that I can stor bookmarks to review later I want to add a bookmark 
  - To set up the appropriate tables, connect to each database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order
  - Connect to the database using the pqsl command \c bookmark_manager;
  - Run the query we have saved in the file 01_create_bookmarks_table.sql
+ - Add title column to bookmark_manager table: ALTER TABLE bookmarks ADD COLUMN title VARCHAR(60);

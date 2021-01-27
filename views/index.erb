@@ -1,7 +1,16 @@
 <h1>Bookmarks app!</h1>
 <h2>.......</h2>
 
-<form action="/list" method="post">
-
-<input type="submit" value="List Saved Bookmarks">
-</form>
+<ul>
+  <% @bookmarks.each do |bookmark| %>
+    <li class="bookmark" id="bookmark-<%= bookmark.id %>">
+      <a href="<%= bookmark.url %>" target="_blank">
+        <%= bookmark.title %>
+      </a>
+      <form action="/bookmarks/<%= bookmark.id %>" method="post">
+        <input type='hidden' name='_method' value='DELETE'/>
+        <input type="submit" value="Delete" />
+      </form>
+    </li>
+  <% end %>
+</ul>
